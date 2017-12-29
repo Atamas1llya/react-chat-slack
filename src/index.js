@@ -5,4 +5,13 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { token } from '../config';
+
+ReactDOM.render((
+  <App
+    token={token}
+    channel_id="C5K5M62S0"
+    username="Configurabe nickname"
+    title="Need help?"
+  />
+), document.getElementById('root'));
