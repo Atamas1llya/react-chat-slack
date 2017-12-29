@@ -1,0 +1,95 @@
+@import "https://fonts.googleapis.com/css?family=Comfortaa";
+
+#container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Comfortaa', cursive;
+
+  #react-chat-slack {
+    width: 400px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+
+    .divider {
+      height: 1px;
+      background: #d6d6d6;
+      margin: 0 15px;
+    }
+
+    .messages-container {
+      flex: 9;
+
+      display: flex;
+      flex-direction: column;
+      overflow: scroll;
+
+      padding-bottom: 15px;
+
+      .message {
+        flex-shrink: 0;
+
+        align-self: flex-start;
+
+        padding: 15px;
+        margin: 15px 15px 0 15px;
+
+        border: 1px solid #d6d6d6;
+        border-radius: 25px;
+
+        display: flex;
+        align-items: center;
+
+        text-align: right;
+
+        &.my {
+          align-self: flex-end;
+        }
+      }
+    }
+
+    .input-container {
+      flex: 1;
+
+      display: flex;
+      align-items: stretch;
+
+      input {
+        flex: 4;
+
+        background: none;
+        border: none;
+        box-shadow: none;
+        outline: none;
+
+        padding: 0 16px;
+
+        font-size: 16px;
+        font-family: 'Comfortaa', cursive;
+      }
+
+      button {
+        flex: 1;
+
+        background: none;
+        border: none;
+        box-shadow: none;
+        outline: none;
+
+        font-size: 16px;
+        font-family: 'Comfortaa', cursive;
+
+        cursor: pointer;
+      }
+    }
+  }
+}
