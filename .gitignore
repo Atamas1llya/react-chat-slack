@@ -1,3 +1,6 @@
+# webpack
+bundle.js*
+
 # Logs
 logs
 *.log
