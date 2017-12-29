@@ -1,10 +1,11 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'react-chat-slack.js',
   },
   devtool: 'cheap-module-source-map',
   module: {
@@ -19,6 +20,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new UglifyJsPlugin()
+  ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },

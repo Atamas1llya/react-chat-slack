@@ -1,11 +1,12 @@
 {
   "name": "react-chat-slack",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "React slack chat integration",
-  "main": "index.js",
+  "main": "./dist/react-chat-slack.js",
   "scripts": {
     "start": "node_modules/.bin/pushstate-server ./dist 8080",
-    "watch": "node_modules/.bin/webpack --watch --colors --progress"
+    "watch": "node_modules/.bin/webpack --watch --colors --progress",
+    "build": "node_modules/.bin/webpack --progress"
   },
   "author": "atamas1llya",
   "license": "MIT",
@@ -25,6 +26,7 @@
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.5",
     "webpack": "^3.10.0"
   }
 }
