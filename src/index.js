@@ -3,7 +3,7 @@ import './index.less';
 
 import Bot from './bot';
 
-export default class App extends Component {
+export default class Chat extends Component {
   refresh = null;
   constructor({ token, channel_id, username, title }) {
     super();

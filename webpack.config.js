@@ -2,8 +2,10 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: './src/index.js',
   output: {
+    library: 'ReactChatSlack',
+    libraryTarget: 'umd',
     path: path.join(__dirname, 'dist'),
     filename: 'react-chat-slack.js',
   },
