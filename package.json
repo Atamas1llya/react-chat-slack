@@ -1,6 +1,7 @@
 {
+  "private": false,
   "name": "react-chat-slack",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React slack chat integration",
   "main": "./dist/react-chat-slack.js",
   "scripts": {
@@ -9,6 +10,14 @@
     "build": "node_modules/.bin/webpack --progress"
   },
   "author": "atamas1llya",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Atamas1llya/react-chat-slack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Atamas1llya/react-chat-slack/issues"
+  },
+  "keywords": ["react", "slack", "chat"],
   "license": "MIT",
   "dependencies": {
     "react": "^16.2.0",
