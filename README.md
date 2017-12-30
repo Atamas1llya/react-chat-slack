@@ -1,5 +1,7 @@
 # react-chat-slack
 
+[![Build Status](https://travis-ci.org/Atamas1llya/react-chat-slack.svg?branch=master)](https://travis-ci.org/Atamas1llya/react-chat-slack)
+
 ## DEMO
 https://atamas1llya.github.io/react-chat-slack/
 

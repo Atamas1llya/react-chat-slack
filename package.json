@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "react-chat-slack",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "React slack chat integration",
   "main": "./dist/react-chat-slack.js",
   "scripts": {
