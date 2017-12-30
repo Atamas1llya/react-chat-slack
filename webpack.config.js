@@ -4,7 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const config = {
   entry: {
     'dist/react-chat-slack': './src',
-    'docs/dist/bundle': ['babel-polyfill', './docs'],
+    'docs/dist/bundle': ['babel-polyfill', './docs/src'],
   },
   output: {
     library: 'ReactChatSlack',
