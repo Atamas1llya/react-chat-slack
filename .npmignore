@@ -6,4 +6,4 @@ src
 .gitignore
 webpack.config.js
 docs
-public
+src/public
