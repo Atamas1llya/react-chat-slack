@@ -3,7 +3,7 @@
   "name": "react-chat-slack",
   "version": "1.0.14",
   "description": "React slack chat integration",
-  "main": "./dist/react-chat-slack.jsx",
+  "main": "./dist/react-chat-slack.js",
   "scripts": {
     "start": "node_modules/.bin/pushstate-server ./docs 8080",
     "watch": "node_modules/.bin/webpack --watch --colors --progress",
