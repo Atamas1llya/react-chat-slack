@@ -7,7 +7,7 @@ yarn-error.log*
 
 # Webpack
 bundle.js*
-dist/*
+dist
 
 # Runtime data
 pids
