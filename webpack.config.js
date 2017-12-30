@@ -1,5 +1,6 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 
 const config = {
   entry: {
@@ -32,7 +33,16 @@ const config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(new UglifyJsPlugin());
+  config.plugins.push(new UglifyJsPlugin({
+    uglifyOptions: {
+      output: {
+        comments: false,
+      }
+    }
+  }));
+  config.plugins.push(new webpack.DefinePlugin({
+   'process.env.NODE_ENV': '"production"'
+  }))
 }
 
 module.exports = config;
