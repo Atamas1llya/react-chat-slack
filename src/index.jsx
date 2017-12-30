@@ -71,7 +71,8 @@ export default class Chat extends Component {
               <div
                 id="react-chat-slack-greeting"
                 onClick={() => this.setState({ expanded: false })}
-              >{ this.state.title }</div>
+              >{ this.state.title }
+              </div>
               <div className="react-chat-slack-divider" />
               <div
                 id="react-chat-slack-messages"
