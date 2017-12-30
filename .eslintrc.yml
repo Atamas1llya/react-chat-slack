@@ -3,6 +3,7 @@ parser: babel-eslint
 rules:
   camelcase: 0
   no-else-return: 0
+  consistent-return: 0
 globals:
   document: 0
   window: 0

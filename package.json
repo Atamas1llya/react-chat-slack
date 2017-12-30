@@ -3,12 +3,12 @@
   "name": "react-chat-slack",
   "version": "1.0.12",
   "description": "React slack chat integration",
-  "main": "./dist/react-chat-slack.js",
+  "main": "./dist/react-chat-slack.jsx",
   "scripts": {
-    "start": "node_modules/.bin/pushstate-server ./dist 8080",
+    "start": "node_modules/.bin/pushstate-server ./public 8080",
     "watch": "node_modules/.bin/webpack --watch --colors --progress",
-    "build": "node_modules/.bin/webpack --progress",
-    "lint": "node_modules/.bin/eslint ."
+    "build": "node_modules/.bin/cross-env NODE_ENV=production node_modules/.bin/webpack --progress",
+    "lint": "node_modules/.bin/eslint . --ext .jsx --ext .js"
   },
   "author": "atamas1llya",
   "publishConfig": {
@@ -40,6 +40,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.3",
     "css-loader": "^0.28.7",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",

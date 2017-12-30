@@ -4,8 +4,9 @@ import './index.less';
 import Bot from './bot';
 
 export default class Chat extends Component {
-  refresh = null;
-  constructor({ token, channel_id, username, title }) {
+  constructor({
+    token, channel_id, username, title,
+  }) {
     super();
     this.state = {
       channel_id,
@@ -14,7 +15,7 @@ export default class Chat extends Component {
       messages: [],
       expanded: false,
       title,
-    }
+    };
 
     this.bot = new Bot({ username, token });
     this.refresh = setInterval(this.refreshReplies, 1000);
@@ -51,14 +52,12 @@ export default class Chat extends Component {
       });
     }
 
-    console.log(result);
-
     this.setState({
       messages: [
         ...this.state.messages,
         result.message,
-      ]
-    })
+      ],
+    });
 
     document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
   }
@@ -68,13 +67,12 @@ export default class Chat extends Component {
       <div id="react-chat-slack">
         {
           this.state.expanded ? (
-
             <div id="react-chat-slack-box">
               <div
                 id="react-chat-slack-greeting"
                 onClick={() => this.setState({ expanded: false })}
               >{ this.state.title }</div>
-              <div className="react-chat-slack-divider"></div>
+              <div className="react-chat-slack-divider" />
               <div
                 id="react-chat-slack-messages"
                 className="react-chat-slack-messages-container"
@@ -84,11 +82,12 @@ export default class Chat extends Component {
                     <div
                       key={index}
                       className={`react-chat-slack-message react-chat-slack-${message.username === this.state.username && 'my'}`}
-                    >{ message.text }</div>
+                    >{ message.text }
+                    </div>
                   ))
                 }
               </div>
-              <div className="react-chat-slack-divider"></div>
+              <div className="react-chat-slack-divider" />
               <form
                 onSubmit={this.handleMessageSubmit}
                 className="react-chat-slack-input-container"
@@ -101,10 +100,11 @@ export default class Chat extends Component {
             <div
               id="react-chat-slack-greeting"
               onClick={() => this.setState({ expanded: true })}
-            >{ this.state.title }</div>
+            >{ this.state.title }
+            </div>
           )
         }
       </div>
-    )
+    );
   }
 }

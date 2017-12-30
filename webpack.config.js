@@ -1,13 +1,16 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = {
-  entry: './src/index.js',
+const config = {
+  entry: {
+    'dist/react-chat-slack': './src/index',
+    'public/bundle': ['babel-polyfill', './src/public'],
+  },
   output: {
     library: 'ReactChatSlack',
     libraryTarget: 'umd',
-    path: path.join(__dirname, 'dist'),
-    filename: 'react-chat-slack.js',
+    path: path.join(__dirname),
+    filename: '[name].js',
   },
   devtool: 'cheap-module-source-map',
   module: {
@@ -22,10 +25,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new UglifyJsPlugin(),
-  ],
+  plugins: [],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(new UglifyJsPlugin())
+}
+
+module.exports = config;
