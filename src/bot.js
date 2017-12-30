@@ -2,7 +2,7 @@ import Slack from 'slack';
 
 export default class Bot {
   constructor({ username, token }) {
-    this.bot = new Slack({ token });
+    this.bot = new Slack({ token: window.atob(token) });
     this.username = username;
   }
 

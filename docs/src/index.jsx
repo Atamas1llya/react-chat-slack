@@ -11,10 +11,11 @@ const App = () => (
     </div>
 
     <ReactChatSlack
-      token="xoxb-292610142212-JaKeibIprjTwisDmIAMR35pJ"
+      token="eG94Yi0yOTI2MTAxNDIyMTItaWpqUWRScnhmTTdOUnZORUdiOHBFYUNP"
       channel_id="C8LM575GD"
       username="Anonymous user"
       title="Need help?"
+      saveSession
     />
   </div>
 );

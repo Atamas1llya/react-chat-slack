@@ -5,7 +5,7 @@ import Bot from './bot';
 
 export default class Chat extends Component {
   constructor({
-    token, channel_id, username, title,
+    token, channel_id, username, title, saveSession = false,
   }) {
     super();
     this.state = {
@@ -15,10 +15,31 @@ export default class Chat extends Component {
       messages: [],
       expanded: false,
       title,
+      saveSession,
     };
 
     this.bot = new Bot({ username, token });
     this.refresh = setInterval(this.refreshReplies, 1000);
+  }
+
+  getStoredData = () => JSON.parse(localStorage.getItem('react-chat-slack-data')) || {
+    messages: [],
+    thread_ts: null,
+  }
+
+  storeData = (messages, thread_ts) => {
+    localStorage.setItem('react-chat-slack-data', JSON.stringify({
+      messages,
+      thread_ts,
+    }));
+  }
+
+  componentWillMount() {
+    if (this.state.saveSession) {
+      const { messages, thread_ts } = this.getStoredData();
+
+      this.setState({ messages, thread_ts });
+    }
   }
 
   componentWillUnmount() {
@@ -31,6 +52,7 @@ export default class Chat extends Component {
     if (thread_ts) {
       const { messages } = await this.bot.getReplies(channel_id, thread_ts);
       this.setState({ messages });
+      this.storeData(messages, thread_ts);
       document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
     }
   }

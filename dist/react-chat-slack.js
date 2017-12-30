@@ -738,7 +738,9 @@ var Chat = function (_Component) {
     var token = _ref.token,
         channel_id = _ref.channel_id,
         username = _ref.username,
-        title = _ref.title;
+        title = _ref.title,
+        _ref$saveSession = _ref.saveSession,
+        saveSession = _ref$saveSession === undefined ? false : _ref$saveSession;
 
     _classCallCheck(this, Chat);
 
@@ -752,7 +754,8 @@ var Chat = function (_Component) {
       thread_ts: null,
       messages: [],
       expanded: false,
-      title: title
+      title: title,
+      saveSession: saveSession
     };
 
     _this.bot = new _bot2.default({ username: username, token: token });
@@ -761,6 +764,17 @@ var Chat = function (_Component) {
   }
 
   _createClass(Chat, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this.state.saveSession) {
+        var _getStoredData = this.getStoredData(),
+            messages = _getStoredData.messages,
+            thread_ts = _getStoredData.thread_ts;
+
+        this.setState({ messages: messages, thread_ts: thread_ts });
+      }
+    }
+  }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       clearInterval(this.refresh);
@@ -838,6 +852,20 @@ var Chat = function (_Component) {
 var _initialiseProps = function _initialiseProps() {
   var _this3 = this;
 
+  this.getStoredData = function () {
+    return JSON.parse(localStorage.getItem('react-chat-slack-data')) || {
+      messages: [],
+      thread_ts: null
+    };
+  };
+
+  this.storeData = function (messages, thread_ts) {
+    localStorage.setItem('react-chat-slack-data', JSON.stringify({
+      messages: messages,
+      thread_ts: thread_ts
+    }));
+  };
+
   this.refreshReplies = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
     var _state, channel_id, thread_ts, _ref3, messages;
 
@@ -848,7 +876,7 @@ var _initialiseProps = function _initialiseProps() {
             _state = _this3.state, channel_id = _state.channel_id, thread_ts = _state.thread_ts;
 
             if (!thread_ts) {
-              _context.next = 8;
+              _context.next = 9;
               break;
             }
 
@@ -860,9 +888,10 @@ var _initialiseProps = function _initialiseProps() {
             messages = _ref3.messages;
 
             _this3.setState({ messages: messages });
+            _this3.storeData(messages, thread_ts);
             document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
 
-          case 8:
+          case 9:
           case 'end':
             return _context.stop();
         }
@@ -2531,7 +2560,7 @@ var Bot = function Bot(_ref) {
     return _this.bot.channels.replies({ channel: channel, thread_ts: thread_ts });
   };
 
-  this.bot = new _slack2.default({ token: token });
+  this.bot = new _slack2.default({ token: window.atob(token) });
   this.username = username;
 };
 
