@@ -1,5 +1,9 @@
 # react-chat-slack
 
+## DEMO
+https://atamas1llya.github.io/react-chat-slack/
+
+
 ## Usage
 
 ```
