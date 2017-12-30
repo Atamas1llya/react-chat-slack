@@ -5,7 +5,7 @@
   "description": "React slack chat integration",
   "main": "./dist/react-chat-slack.jsx",
   "scripts": {
-    "start": "node_modules/.bin/pushstate-server ./public 8080",
+    "start": "node_modules/.bin/pushstate-server ./dist/public 8080",
     "watch": "node_modules/.bin/webpack --watch --colors --progress",
     "build": "node_modules/.bin/cross-env NODE_ENV=production node_modules/.bin/webpack --progress",
     "lint": "node_modules/.bin/eslint . --ext .jsx --ext .js"

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ReactChatSlack from '../index';
+import ReactChatSlack from 'react-chat-slack';
 
 import './styles.less';
 
