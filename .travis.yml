@@ -1,8 +1,14 @@
+language: node_js
+node_js:
+  - "node"
+
 deploy:
   provider: npm
   email: atamas1llya@gmail.com
   api_key:
     secure: I/Y4isA25XDkRHkNUTZOrfOB9uIuqjSo6Olnze+oAU5CJlFdHXCjAQ8BwWuJh4/hmyZSqyf8LtaTJk1HB/G5VRkYC2ovvjcY8s/pzs9aAgikZ5gtGRpzl3xwSAz7PO7oQWlrRDNGXuoO1iI4PRHXjTPGrmwaFGnSSNsxv/66DjWr6FBtqb8LBEFvb7jJdmeEF3v1pbQF6loxe4KyAFxVckm9ZSwMuqay+RtNdGt6hRYlI8e1cyEJ82lMZCCwOFJgaUoBA5In7lXdqmk2/+XMKqdZs6uhOUoIFsUBkldU0SOJdZgdi3nLauc030MJQthN7crBsu+6bMzCig3z/3l3Q/FHVRfRhZWMOPaffPwYNDbUeyf7Ut2MTtgNhyepIEYY6tBHIPrdalNcW5ONLL0zBNSvjNVqwM4o1xK01J0v6Hl5mkNYt5mpJSFzWXT5ds3KbfojqqKitJalBUAFYeMM5amQyvreulTQ3JwDaYH5LqvuIkPijbct1LPggCROVVnY/Jq+O/txI3o8QcuEp0P+bTcQquGq6eDBF5OPsTzExZf/WRouc2OfLDfmNuR7x8hnOlRMgGi3qRAJ9fFRwa7UduelJyhk1Si6SFUbNcLMSOx/TKWji+29jq6BNmRpBQvAmkvjYq3rT5QlQRIGoRXnU/QHdtKh1L8/5mPxzAOIzpY=
+  skip_cleanup: true
+
   on:
-    tags: true
+    branch: production
     repo: Atamas1llya/react-chat-slack
