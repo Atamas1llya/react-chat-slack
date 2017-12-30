@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node_modules/.bin/pushstate-server ./dist 8080",
     "watch": "node_modules/.bin/webpack --watch --colors --progress",
-    "build": "node_modules/.bin/webpack --progress"
+    "build": "node_modules/.bin/webpack --progress",
+    "lint": "node_modules/.bin/eslint ."
   },
   "author": "atamas1llya",
   "publishConfig": {
@@ -20,7 +21,11 @@
   "bugs": {
     "url": "https://github.com/Atamas1llya/react-chat-slack/issues"
   },
-  "keywords": ["react", "slack", "chat"],
+  "keywords": [
+    "react",
+    "slack",
+    "chat"
+  ],
   "license": "MIT",
   "dependencies": {
     "react": "^16.2.0",
@@ -29,12 +34,18 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.1",
