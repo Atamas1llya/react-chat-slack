@@ -11,7 +11,7 @@ const App = () => (
     </div>
 
     <ReactChatSlack
-      token="xoxb-292610142212-rWlp23KS3TmtM3EOUE1N4bk3"
+      token="xoxb-292610142212-JaKeibIprjTwisDmIAMR35pJ"
       channel_id="C8LM575GD"
       username="Anonymous user"
       title="Need help?"
