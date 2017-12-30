@@ -8,7 +8,7 @@ https://atamas1llya.github.io/react-chat-slack/
 
 ## Usage
 
-```
+```javascript
 import ReactChatSlack from 'react-chat-slack';
 
 class App extends Component {
