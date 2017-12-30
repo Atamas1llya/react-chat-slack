@@ -22,13 +22,13 @@ export default class Chat extends Component {
     this.refresh = setInterval(this.refreshReplies, 1000);
   }
 
-  getStoredData = () => JSON.parse(localStorage.getItem('react-chat-slack-data')) || {
+  getStoredData = () => JSON.parse(localStorage.getItem(`react-chat-slack-data-${this.username}`)) || {
     messages: [],
     thread_ts: null,
   }
 
   storeData = (messages, thread_ts) => {
-    localStorage.setItem('react-chat-slack-data', JSON.stringify({
+    localStorage.setItem(`react-chat-slack-data-${this.username}`, JSON.stringify({
       messages,
       thread_ts,
     }));
