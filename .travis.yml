@@ -10,5 +10,5 @@ deploy:
   skip_cleanup: true
 
   on:
-    branch: production
+    branch: master
     repo: Atamas1llya/react-chat-slack
