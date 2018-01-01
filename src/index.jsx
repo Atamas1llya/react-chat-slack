@@ -53,7 +53,7 @@ export default class Chat extends Component {
       const { messages } = await this.bot.getReplies(channel_id, thread_ts);
       this.setState({ messages });
       this.storeData(messages, thread_ts);
-      document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
+      this.scrollToBottom();
     }
   }
 
@@ -81,7 +81,13 @@ export default class Chat extends Component {
       ],
     });
 
-    document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
+    this.scrollToBottom();
+  }
+
+  scrollToBottom = () => {
+    if (this.state.expanded) {
+      document.querySelector('#react-chat-slack-messages').scrollTop = document.querySelector('#react-chat-slack-messages').scrollHeight;
+    }
   }
 
   render() {
