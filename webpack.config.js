@@ -37,12 +37,12 @@ if (process.env.NODE_ENV === 'production') {
     uglifyOptions: {
       output: {
         comments: false,
-      }
-    }
+      },
+    },
   }));
   config.plugins.push(new webpack.DefinePlugin({
-   'process.env.NODE_ENV': '"production"'
-  }))
+    'process.env.NODE_ENV': '"production"',
+  }));
 }
 
 module.exports = config;

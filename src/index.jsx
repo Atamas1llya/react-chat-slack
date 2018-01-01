@@ -24,7 +24,7 @@ export default class Chat extends Component {
 
   getStoredData = () => JSON.parse(localStorage.getItem(`react-chat-slack-data-${this.username}`)) || {
     messages: [],
-    thread_ts: null,
+    thread_ts: '',
   }
 
   storeData = (messages, thread_ts) => {
@@ -48,12 +48,23 @@ export default class Chat extends Component {
 
   refreshReplies = async () => {
     const { channel_id, thread_ts } = this.state;
+    let result;
 
     if (thread_ts) {
-      const { messages } = await this.bot.getReplies(channel_id, thread_ts);
-      this.setState({ messages });
-      this.storeData(messages, thread_ts);
-      this.scrollToBottom();
+      try {
+        result = await this.bot.getReplies(channel_id, thread_ts);
+        const { messages } = result;
+
+        this.setState({ messages });
+        this.storeData(messages, thread_ts);
+        this.scrollToBottom();
+      } catch (e) {
+        this.setState({
+          thread_ts: null,
+          messages: [],
+        });
+        this.storeData([], '');
+      }
     }
   }
 
